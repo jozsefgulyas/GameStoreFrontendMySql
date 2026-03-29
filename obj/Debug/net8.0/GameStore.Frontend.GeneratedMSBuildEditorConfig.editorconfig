@@ -28,8 +28,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/jozse/GameStoreFrontendMySql/Components/Pages/Customer.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDdXN0b21lci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jozse/GameStoreFrontendMySql/Components/Pages/DeleteCustomer.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xEZWxldGVDdXN0b21lci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/jozse/GameStoreFrontendMySql/Components/Pages/DeleteGame.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xEZWxldGVHYW1lLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jozse/GameStoreFrontendMySql/Components/Pages/EditCustomer.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFZGl0Q3VzdG9tZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/jozse/GameStoreFrontendMySql/Components/Pages/EditGame.razor]
@@ -42,10 +54,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/jozse/GameStoreFrontendMySql/Components/Pages/Game.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xHYW1lLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/jozse/GameStoreFrontendMySql/Components/Pages/Home.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/jozse/GameStoreFrontendMySql/Components/Routes.razor]

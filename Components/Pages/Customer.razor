@@ -1,14 +1,14 @@
-﻿@page "/"
-@inject GamesClient Client
+﻿@page "/customers"
+@inject CustomersClient Client
 @attribute [StreamRendering]
 
-<PageTitle>Game Catalog</PageTitle>
+<PageTitle>Customer List</PageTitle>
 
 <div class="mt-2">
-    <a class="btn btn-primary" role="button" href="/editgame">New Game</a>
+    <a class="btn btn-primary" role="button" href="/editcustomer">New Customer</a>
 </div>
 
-@if(games is null)
+@if(customers is null)
 {
     <p><em>Loading...</em></p>
 }
@@ -24,25 +24,25 @@ else
             <th></th>
         </thead>
         <tbody>
-            @foreach (var game in games){
+            @foreach (var customer in customers){
                 <tr>
-                    <td>@game.Id</td>
-                    <td>@game.Name</td>
-                    <td>@game.Genre</td>
-                    <td class="text-end">@game.Price.ToString("C2")</td>
-                    <td>@game.ReleaseDate</td>
+                    <td>@customer.Id</td>
+                    <td>@customer.Name</td>
+                    <td>@customer.Email</td>
+                    <td>@customer.DateOfBirth</td>
+                    <td>@customer.Address</td>
                     <td>
                         <div class="d-flex">
-                            <a class="btn btn-primary me-2" role="button" href="@GameUrl(game.Id)">
+                            <a class="btn btn-primary me-2" role="button" href="@CustomerUrl(customer.Id)">
                                 <i class="bi bi-pencil"></i>
                             </a>
                             <button class="btn btn-danger" 
                                     data-bs-toggle="modal" 
-                                    data-bs-target="@GetDeleteModalId(game)">
+                                    data-bs-target="@GetDeleteModalId(customer)">
                                 <i class="bi bi-x-lg"></i>
                             </button>
                         </div>
-                        <DeleteGame Game="@game" />
+                        <DeleteCustomer Customer="@customer" />
                     </td>
                 </tr>
             }
@@ -51,17 +51,17 @@ else
 }
 
 @code {
-    private GameSummary[]? games;
+    private CustomerDetails[]? customers;
 
     protected override async Task OnInitializedAsync()
     {
-        games = await Client.GetGamesAsync();
+        customers = await Client.GetCustomersAsync();
     }
 
-    private static string GameUrl(int id) => $"/editgame/{id}";
+    private static string CustomerUrl(int id) => $"/editcustomer/{id}";
 
-    private string GetDeleteModalId(GameSummary game)
+    private string GetDeleteModalId(CustomerDetails customer)
     {
-        return $"#{DeleteGame.GetModalId(game)}";
+        return $"#{DeleteCustomer.GetModalId(customer)}";
     }
 }

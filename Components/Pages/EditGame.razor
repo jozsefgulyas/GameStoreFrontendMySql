@@ -1,5 +1,7 @@
 ﻿@page "/editgame"
 @page "/editgame/{id:int}"
+@attribute [StreamRendering]
+
 @rendermode InteractiveServer
 
 @inject NavigationManager NavigationManager
@@ -42,7 +44,7 @@ else
                 </div>
                 <div class="mb-3">
                     <label for="price" class="form-label">Price:</label>
-                    <InputNumber id="price" @bind-Value="game.Price" class="form-control" />
+                    <InputNumber id="price" @bind-Value="game.Price" @bind-Value:format="F2" class="form-control text-end" />
                     <ValidationMessage For="() => game.Price" />
                 </div>
                 <div class="mb-3">
@@ -50,7 +52,7 @@ else
                     <InputDate id="releaseDate" @bind-Value="game.ReleaseDate" class="form-control" />
                 </div>
                 <button type="submit" class="btn btn-primary">Save</button>
-                <a role="button" class="btn btn-secondary" href="/">Cancel</a>
+                <a role="button" class="btn btn-secondary" href="/games">Cancel</a>
             </EditForm>
         </div>
     </div>

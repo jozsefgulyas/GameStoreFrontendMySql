@@ -1,11 +1,15 @@
 ﻿@page "/customers"
 @inject CustomersClient Client
+
 @attribute [StreamRendering]
 
+@rendermode InteractiveServer
+@inject NavigationManager nav
 <PageTitle>Customer List</PageTitle>
 
 <div class="mt-2">
-    <a class="btn btn-primary" role="button" href="/editcustomer">New Customer</a>
+    <button class="btn btn-primary" @onclick='() => nav.NavigateTo("/orders")'>Back</button>
+    <button class="btn btn-primary" @onclick='() => nav.NavigateTo("/editcustomer")'>New Customer</button>
 </div>
 
 @if(customers is null)
@@ -24,9 +28,10 @@ else
             <th></th>
         </thead>
         <tbody>
-            @foreach (var customer in customers){
+            @foreach (var (customer, index) in customers.Select((c, i) => (c, i)))
+            {
                 <tr>
-                    <td>@customer.Id</td>
+                    <td>@(index+1)</td>
                     <td>@customer.Name</td>
                     <td>@customer.Email</td>
                     <td>@customer.DateOfBirth</td>

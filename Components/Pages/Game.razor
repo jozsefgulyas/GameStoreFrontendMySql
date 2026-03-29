@@ -1,11 +1,15 @@
 ﻿@page "/games"
 @inject GamesClient Client
+
 @attribute [StreamRendering]
 
+@rendermode InteractiveServer
+@inject NavigationManager nav
 <PageTitle>Game Catalog</PageTitle>
 
 <div class="mt-2">
-    <a class="btn btn-primary" role="button" href="/editgame">New Game</a>
+    <button class="btn btn-primary" @onclick='() => nav.NavigateTo("/orders")'>Back</button>
+    <button class="btn btn-primary" @onclick='() => nav.NavigateTo("/editgame")'>New Game</button>
 </div>
 
 @if(games is null)
@@ -24,9 +28,10 @@ else
             <th></th>
         </thead>
         <tbody>
-            @foreach (var game in games){
+            @foreach (var (game, index) in games.Select((g, i) => (g, i)))
+            {
                 <tr>
-                    <td>@game.Id</td>
+                    <td>@(index+1)</td>
                     <td>@game.Name</td>
                     <td>@game.Genre</td>
                     <td class="text-end">@game.Price.ToString("C2")</td>

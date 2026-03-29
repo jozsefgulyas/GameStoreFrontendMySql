@@ -1,10 +1,10 @@
-﻿@inject GamesClient Client
+﻿@inject OrdersClient Client
 @inject NavigationManager NavigationManager
 @attribute [StreamRendering]
 
 @rendermode InteractiveServer
 
-<div class="modal fade" id="@GetModalId(Game)" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="@GetModalId(Order)" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -24,24 +24,24 @@
 
 @code {
     [Parameter]
-    public GameSummary? Game { get; set; }
+    public OrderDetails? Order { get; set; }
 
     private string title = string.Empty;
 
     protected override void OnParametersSet()
     {
-        title = $"Delete {Game?.Name}?";
+        title = $"Delete {Order?.Id}?";
     }
 
-    public static string GetModalId(GameSummary? game)
+    public static string GetModalId(OrderDetails? order)
     {
-        ArgumentNullException.ThrowIfNull(game);
-        return $"deleteModal-{game.Id}";
+        ArgumentNullException.ThrowIfNull(order);
+        return $"deleteModal-{order.Id}";
     }
 
     private async Task ConfirmAsync()
     {
-        await Client.DeleteGameAsync(Game!.Id);
+        await Client.DeleteOrderAsync(Order!.Id);
         NavigationManager.Refresh();
     }
 }

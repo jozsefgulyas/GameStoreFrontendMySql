@@ -1,5 +1,7 @@
 ﻿@page "/editcustomer"
 @page "/editcustomer/{id:int}"
+@attribute [StreamRendering]
+
 @rendermode InteractiveServer
 
 @inject NavigationManager NavigationManager
@@ -43,7 +45,7 @@ else
                     <ValidationMessage For="() => customer.Address" />
                 </div>                    
                 <button type="submit" class="btn btn-primary">Save</button>
-                <a role="button" class="btn btn-secondary" href="/">Cancel</a>
+                <a role="button" class="btn btn-secondary" href="/customers">Cancel</a>
             </EditForm>
         </div>
     </div>

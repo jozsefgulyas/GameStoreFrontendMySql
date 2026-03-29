@@ -1,5 +1,7 @@
 ﻿@inject CustomersClient Client
 @inject NavigationManager NavigationManager
+@attribute [StreamRendering]
+
 @rendermode InteractiveServer
 
 <div class="modal fade" id="@GetModalId(Customer)" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
